@@ -11,6 +11,7 @@ export default function Sidebar({ isOpen, onClose, activeMode, onSelectMode }) {
         { id: 'roam', icon: '🚀', label: '漫游模式', desc: '自由驾驶数据监控' },
         { id: 'create', icon: '🛠', label: '创建赛道', desc: '录制路径与起终点' },
         { id: 'race', icon: '🏁', label: '赛道模式', desc: '加载赛道进行刷圈' },
+        { id: 'gyro', icon: '📐', label: '陀螺仪校准', desc: '调整 G 值与姿态方向' },
     ];
 
     return (

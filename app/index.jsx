@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { View, SafeAreaView, StatusBar, Platform, StyleSheet } from 'react-native';
 import { BluetoothProvider, useBluetooth } from '../components/BluetoothContext';
 import { THEME } from '../constants/theme';
+import KeepAwake from 'react-native-keep-awake';
 
 // 引入拆分后的组件
 import ConnectionScreen from '../components/screens/ConnectionScreen';
 import SettingsScreen from '../components/screens/SettingsScreen';
+import GyroCalibrationMode from '../components/screens/GyroCalibrationMode';
 import RoamMode from '../components/screens/RoamMode';
 import CreateTrackMode from '../components/screens/CreateTrackMode';
 import RaceMode from '../components/screens/RaceMode';
@@ -27,6 +29,7 @@ const HomeTab = () => {
         case 'roam': content = <RoamMode />; title = "漫游仪表盘"; break;
         case 'create': content = <CreateTrackMode />; title = "创建赛道"; break;
         case 'race': content = <RaceMode />; title = "赛道模式"; break;
+        case 'gyro': content = <GyroCalibrationMode />; title = "传感器校准"; break;
         default: content = <RoamMode />; title = "仪表盘";
     }
 
@@ -91,6 +94,7 @@ export default function App() {
         <BluetoothProvider>
             <StatusBar barStyle="light-content" backgroundColor="#000" translucent={true} />
             <RootApp />
+            <KeepAwake />
         </BluetoothProvider>
     );
 }
